@@ -16,7 +16,7 @@ if (!destKeyString) {
 }
 console.log(`Destination pub key: ${destKeyString}`);
 
-const senderKeypair = getKeypairFromEnvironment("SECRET_KEY");
+const senderKeypair = getKeypairFromEnvironment("PRIVATE_KEY");
 const toPubKey = new PublicKey(destKeyString);
 
 const connection = new Connection("https://api.devnet.solana.com", "confirmed");

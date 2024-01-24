@@ -9,7 +9,7 @@ const API_URL = "http://localhost:8899";
 
 const connection = new web3.Connection(API_URL, "confirmed");
 
-const keypair = getKeypairFromEnvironment("SECRET_KEY");
+const keypair = getKeypairFromEnvironment("PRIVATE_KEY");
 const publicKey = keypair.publicKey;
 
 console.log(`Address: `, publicKey.toBase58());

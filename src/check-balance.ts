@@ -17,5 +17,3 @@ const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 const balanceInLamports = await connection.getBalance(publicKey);
 const balance = balanceInLamports / LAMPORTS_PER_SOL;
 console.log(`💰 The balance for the wallet at address ${publicKey} is ${balance}!`);
-
-// pub key: 3ETCHQBZXGNEAohKp24huXU17WZE2C9qSedTow5HnzWg

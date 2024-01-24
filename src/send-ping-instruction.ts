@@ -13,7 +13,7 @@ import "dotenv/config";
 import base58 from "bs58";
 import { getKeypairFromEnvironment } from "@solana-developers/node-helpers";
 
-const payer = getKeypairFromEnvironment('SECRET_KEY');
+const payer = getKeypairFromEnvironment('PRIVATE_KEY');
 const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
 // const connection = new Connection(clusterApiUrl('devnet'));
 
