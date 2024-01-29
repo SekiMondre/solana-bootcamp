@@ -5,7 +5,10 @@ import * as borsh from '@project-serum/borsh'
 import * as fs from 'fs'
 import dotenv from 'dotenv'
 dotenv.config()
-import { API_URL, CRUD_PROGRAM_ADDRESS } from "./index.ts";
+import { DEV_API_URL, CRUD_PROGRAM_ADDRESS, LOCAL_API_URL } from "./index.ts";
+
+// const URL = DEV_API_URL;
+let URL = LOCAL_API_URL;
 
 function initializeSignerKeypair(): web3.Keypair {
     if (!process.env.PRIVATE_KEY) {
@@ -90,21 +93,26 @@ async function sendTestMovieReview(movie: Movie, signer: web3.Keypair, programId
 
     transaction.add(instruction)
     const tx = await web3.sendAndConfirmTransaction(connection, transaction, [signer])
-    console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`)
+
+    if (URL === DEV_API_URL) {
+        console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`)
+    } else if (URL === LOCAL_API_URL) {
+        console.log(`Tx signature: ${tx}`);
+    }
 }
 
 async function main() {
 
     const signer = initializeSignerKeypair();
-    const connection = new web3.Connection(API_URL);
+    const connection = new web3.Connection(URL);
     const movieProgramId = CRUD_PROGRAM_ADDRESS;
     
     await airdropSolIfNeeded(signer, connection);
     
     const movie: Movie = {
-        title: `Duke Van Treta esteve aqui`,
+        title: `Big Billy`,
         rating: 42,
-        description: 'pacífico só o oceano, eu gosto é do estrago'
+        description: 'xarapacantarairanamachugamaga'
     }
     
     await sendTestMovieReview(movie, signer, movieProgramId, connection);

@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js";
 
-// export const API_URL = "http://localhost:8899";
-export const API_URL = "https://api.devnet.solana.com";
+export const LOCAL_API_URL = "http://localhost:8899";
+export const DEV_API_URL = "https://api.devnet.solana.com";
 
 export const PING_PROGRAM_ADDRESS = new PublicKey('ChT1B39WKLS8qUrkLvFDXMhEJ4F1XZzwUNHUt4AU9aVa');
 export const PING_PROGRAM_DATA_ADDRESS =  new PublicKey('Ah9K7dQ8EHaZqcAsgBW8w37yN2eAy3koFmUn4x3CJtod');
