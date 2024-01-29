@@ -50,7 +50,7 @@ async function sendTestMovieReview(movie: Movie, signer: web3.Keypair, programId
     let buffer = Buffer.alloc(1000)
     movieInstructionLayout.encode(
         {
-            variant: 0,
+            variant: 1,
             title: movie.title,
             rating: movie.rating,
             description: movie.description
@@ -111,8 +111,8 @@ async function main() {
     
     const movie: Movie = {
         title: `Big Billy`,
-        rating: 42,
-        description: 'xarapacantarairanamachugamaga'
+        rating: 3,
+        description: 'iuahefiufeahouefa'
     }
     
     await sendTestMovieReview(movie, signer, movieProgramId, connection);

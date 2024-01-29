@@ -6,6 +6,11 @@ pub enum MovieInstruction {
         title: String,
         rating: u8,
         description: String
+    },
+    Update {
+        title: String,
+        rating: u8,
+        description: String
     }
 }
 
@@ -16,6 +21,7 @@ impl MovieInstruction {
         let payload = MovieReviewPayload::try_from_slice(rest).unwrap();
         Ok(match variant {
             0 => Self::Add { title: payload.title, rating: payload.rating, description: payload.description },
+            1 => Self::Update { title: payload.title, rating: payload.rating, description: payload.description },
             _ => return Err(ProgramError::InvalidInstructionData)
         })
     }
