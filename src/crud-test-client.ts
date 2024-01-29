@@ -102,9 +102,9 @@ async function main() {
     await airdropSolIfNeeded(signer, connection);
     
     const movie: Movie = {
-        title: `Stanislaw${Math.random()*1000000}`,
-        rating: 5,
-        description: 'a great bard wheeee'
+        title: `Duke Van Treta esteve aqui`,
+        rating: 42,
+        description: 'pacífico só o oceano, eu gosto é do estrago'
     }
     
     await sendTestMovieReview(movie, signer, movieProgramId, connection);
